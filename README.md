@@ -1,4 +1,4 @@
-![产品预览图](screenshot2.png)
+![产品预览图](screenshot2.webp)
 
 # FaceSwap（电商模特图换脸）
 
