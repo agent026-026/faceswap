@@ -70,6 +70,56 @@
       font-size: 0.8rem;
       color: var(--muted);
     }
+    .lang-switch {
+      display: flex;
+      gap: 0;
+      margin: 0 0 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      width: fit-content;
+      max-width: 100%;
+    }
+    .lang-switch button {
+      font: inherit;
+      font-size: 0.9rem;
+      padding: 0.45rem 1rem;
+      border: none;
+      background: var(--bg);
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-switch button:hover {
+      background: rgba(127, 127, 127, 0.12);
+      color: var(--fg);
+    }
+    .lang-switch button[aria-pressed="true"] {
+      background: var(--fg);
+      color: var(--bg);
+    }
+    @media (prefers-color-scheme: dark) {
+      .lang-switch button[aria-pressed="true"] {
+        background: var(--link);
+        color: #fff;
+      }
+    }
+    .lang-panel[hidden] {
+      display: none;
+    }
+    .face-data-note {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0 0 1rem;
+    }
+    .face-data-panel h3 {
+      font-size: 1rem;
+      margin: 1.1rem 0 0.5rem;
+      font-weight: 600;
+    }
+    .face-data-panel h3:first-child {
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
@@ -96,6 +146,75 @@
       <li>仅在您<strong>主动发起生成</strong>时，相关图像片段会通过 HTTPS 传送至 Google 的 AI 服务；请参阅 <a href="https://ai.google.dev/terms" rel="noopener noreferrer">Google AI 条款</a> 及谷歌隐私政策。</li>
       <li>请确保您对使用的照片、肖像与商品素材拥有合法授权，并勿将输出用于违法、欺诈或侵犯他人权益的行为。</li>
     </ul>
+
+    <div id="face-data" class="face-data-panel" style="margin-top: 1.35rem; padding-top: 1.25rem; border-top: 1px solid var(--border);">
+      <p class="face-data-note">以下为人脸与个人形象数据处理说明（锚点 <span class="placeholder">#face-data</span>，供 App 内隐私政策链接使用）。关于 Google 对 API 数据的处理须以其 <a href="https://ai.google.dev/gemini-api/docs" rel="noopener noreferrer">官方文档与条款</a> 为准。</p>
+
+      <div class="lang-switch" role="group" aria-label="显示语言">
+        <button type="button" id="lang-btn-zh" aria-pressed="true">中文</button>
+        <button type="button" id="lang-btn-en" aria-pressed="false">English</button>
+      </div>
+
+      <div id="panel-zh" class="lang-panel" lang="zh-Hans">
+        <h3>人脸与个人形象数据</h3>
+        <p><strong>我们收集哪些与人脸相关的数据</strong></p>
+        <ul>
+          <li>由你主动导入或粘贴的<strong>完整图片</strong>仅在设备本地处理。</li>
+          <li>使用系统提供的图像分析在设备上检测人脸后，应用会裁切<strong>面部及周边区域</strong>，并将该区域编码为 <strong>JPEG 图像</strong>。</li>
+          <li>应用<strong>不会</strong>在设备上计算或上传独立的“人脸模板”“面纹”或用于识别身份的生物特征向量。</li>
+          <li>你为编辑图像而输入的<strong>文本提示词</strong>可能与面部外观或风格相关，会随请求一并发送至第三方 AI 服务。</li>
+        </ul>
+        <p><strong>我们如何使用这些数据</strong></p>
+        <ul>
+          <li>仅用于调用第三方生成式 AI 模型，<strong>生成编辑后的图像</strong>并在应用内展示。</li>
+          <li><strong>不会</strong>将人脸相关数据用于识别你的身份、用户画像、广告定向或除上述生成功能以外的目的。</li>
+        </ul>
+        <p><strong>是否与第三方共享、存储在何处</strong></p>
+        <ul>
+          <li><strong>会。</strong>为实现 AI 生成，应用将你的 <strong>JPEG 人像裁切图</strong> 与 <strong>提示词</strong> 通过加密连接发送至 <strong>Google LLC</strong> 提供的 <strong>Google Gemini API</strong>（Generative Language API）。数据传输路径为：<strong>你的 Mac 设备 → Google 的服务器</strong>。</li>
+          <li>本应用<strong>不运营</strong>用于接收或存储上述图像内容的自有后端服务器；处理由 Google 在其基础设施上完成。Google 对该等数据的处理受其公开服务条款与隐私政策约束；请参见 Google 就 Gemini / Generative AI API 发布的说明。</li>
+        </ul>
+        <p><strong>保留期限</strong></p>
+        <ul>
+          <li><strong>你的设备上</strong>：原始图与生成结果仅在本地保留；若你使用系统文件对话框将结果导出，则文件保存在你所选位置。应用可能在本地存储你的 API Key、模型配置、提示词等设置，直至你卸载应用或清除数据。</li>
+          <li><strong>Google 侧</strong>：API 请求相关的处理与留存遵循 Google 对其企业 / API 产品的现行政策；我们不控制 Google 内部日志留存细则，请以 Google 官方文档为准。</li>
+        </ul>
+        <p><strong>撤回同意</strong></p>
+        <ul>
+          <li>你可以在应用<strong>设置</strong>中关闭「允许将数据发送至 Google Gemini」，或在首次提示中拒绝同意；关闭后应用不会向 Google 发起含人像裁切图与提示词的生成请求。</li>
+        </ul>
+      </div>
+
+      <div id="panel-en" class="lang-panel" lang="en" hidden>
+        <h3>Face and likeness data</h3>
+        <p><strong>What face-related data we process</strong></p>
+        <ul>
+          <li><strong>Full images</strong> you import or paste are processed <strong>on your device</strong> first.</li>
+          <li>After detecting a face locally, the app crops the <strong>face region (including surrounding area)</strong> and encodes it as a <strong>JPEG image</strong>.</li>
+          <li>The app does <strong>not</strong> compute or upload a separate biometric template, faceprint, or similar identifier.</li>
+          <li>Your <strong>text prompt</strong> for editing may describe facial appearance or style and is sent to the third-party AI service together with the crop.</li>
+        </ul>
+        <p><strong>How we use this data</strong></p>
+        <ul>
+          <li>Solely to call a third-party generative AI model to <strong>produce an edited image</strong> and display it in the app.</li>
+          <li>We do <strong>not</strong> use face-related data to identify you, build profiles, serve ads, or for any purpose beyond this generation feature.</li>
+        </ul>
+        <p><strong>Sharing, third parties, and storage</strong></p>
+        <ul>
+          <li><strong>Yes.</strong> To provide AI generation, the app transmits your <strong>JPEG face-region crop</strong> and <strong>prompt</strong> over an encrypted connection to <strong>Google LLC</strong>’s <strong>Google Gemini API</strong> (Generative Language API). Path: <strong>your Mac → Google’s servers</strong>.</li>
+          <li>This app does <strong>not</strong> operate its own backend that receives or stores those images; processing occurs on Google’s infrastructure, governed by Google’s applicable terms and privacy notices for Gemini / Generative AI API users.</li>
+        </ul>
+        <p><strong>Retention</strong></p>
+        <ul>
+          <li><strong>On device:</strong> Source and output images remain local unless you export a file to a location you choose. Settings such as API key, model id, and prompts may persist until you delete the app or its data.</li>
+          <li><strong>At Google:</strong> Handling and retention of API traffic follow Google’s current policies for the relevant API products; refer to Google’s official documentation for details.</li>
+        </ul>
+        <p><strong>Withdrawing consent</strong></p>
+        <ul>
+          <li>You can turn off “Allow sending data to Google Gemini” in the app <strong>Settings</strong>, or decline the first-time prompt. When disabled, the app will not send face crops or prompts to Google for generation.</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section id="requirements">
@@ -124,6 +243,25 @@
       if (el && user !== 'YOUR_USERNAME' && repo !== 'YOUR_REPO') {
         el.textContent = 'https://github.com/' + user + '/' + repo;
       }
+    })();
+
+    (function () {
+      var btnZh = document.getElementById('lang-btn-zh');
+      var btnEn = document.getElementById('lang-btn-en');
+      var panelZh = document.getElementById('panel-zh');
+      var panelEn = document.getElementById('panel-en');
+      if (!btnZh || !btnEn || !panelZh || !panelEn) return;
+
+      function setLang(lang) {
+        var isZh = lang === 'zh';
+        panelZh.hidden = !isZh;
+        panelEn.hidden = isZh;
+        btnZh.setAttribute('aria-pressed', isZh ? 'true' : 'false');
+        btnEn.setAttribute('aria-pressed', isZh ? 'false' : 'true');
+      }
+
+      btnZh.addEventListener('click', function () { setLang('zh'); });
+      btnEn.addEventListener('click', function () { setLang('en'); });
     })();
   </script>
 </body>
