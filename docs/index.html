@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="favicon.ico">
-  <title>FaceSwap · 电商模特图换脸 · 产品与支持</title>
-  <meta name="description" content="FaceSwap macOS 应用：本地 Vision 人脸检测，Gemini 多模态生成，适用于电商模特图处理。支持、隐私与链接说明。">
+  <title>FaceSwap · 电商模特图换脸</title>
+  <meta name="description" content="FaceSwap macOS 应用：本地 Vision 人脸检测，支持 Google Gemini 与 Kling（可灵）等生成式 AI。适用于电商模特图处理；支持、隐私与链接说明。">
   <style>
     :root {
       color-scheme: light dark;
@@ -125,30 +125,30 @@
 <body>
   <header>
     <h1>FaceSwap</h1>
-    <p class="subtitle">电商场景 · macOS 本地人脸检测与 AI 辅助图像编辑（需自备 Google Gemini API）</p>
+    <p class="subtitle">电商场景 · macOS 本地人脸检测与 AI 辅助图像编辑（需在应用内自备 Google Gemini 或 Kling（可灵）API 凭据）</p>
   </header>
 
   <section id="product">
     <h2>产品说明</h2>
-    <p>FaceSwap 是一款运行在您 Mac 上的效率类工具，用于在您本人提供素材的前提下，辅助处理含人像的图片（例如电商模特图）。应用在设备本地使用系统能力检测人脸区域；当您主动发起「生成」时，会将当前处理中的人脸区域图像通过加密连接（HTTPS）发送至 <strong>Google</strong> 的生成式 AI 服务以返回编辑结果，并融合回原图。</p>
-    <p><strong>重要：</strong>使用本应用需您自行准备有效的 API 权限与符合条款的网络环境。生成质量与可用性取决于第三方服务政策与模型版本。</p>
+    <p>FaceSwap 是一款运行在您 Mac 上的效率类工具，用于在您本人提供素材的前提下，辅助处理含人像的图片（例如电商模特图）。应用在设备本地使用系统能力检测人脸区域；当您主动发起「生成」时，会将当前处理中的人脸区域图像通过加密连接（HTTPS）发送至您在应用中所选的<strong>第三方生成式 AI 服务</strong>（<strong>Google Gemini API</strong> 或 <strong>Kling（可灵）开放平台 API</strong>）以返回编辑结果，并融合回原图。</p>
+    <p><strong>重要：</strong>使用本应用需您自行准备有效的 API 权限、遵守相应服务商条款，以及符合条款的网络环境。生成质量与可用性取决于第三方服务政策与模型版本。</p>
   </section>
 
   <section id="support">
     <h2>支持与反馈</h2>
-    <p>技术支持、缺陷报告与功能建议请通过我们的 <a href="https://github.com/agent026-026/faceswap">FaceSwap GitHub仓库</a>提交（请在 App Store 或分发渠道所列的「支持链接」中打开同一地址）。</p>
+    <p>技术支持、缺陷报告与功能建议请通过我们的 <a href="https://github.com/agent026-026/faceswap">FaceSwap GitHub 仓库</a>提交（请在 App Store 或分发渠道所列的「支持链接」中打开同一地址）。</p>
   </section>
 
   <section id="privacy">
     <h2>隐私与数据</h2>
     <ul>
       <li>开发者<strong>不通过自有服务器</strong>收集本应用内的账户密码；API 密钥由您保存在本设备。</li>
-      <li>仅在您<strong>主动发起生成</strong>时，相关图像片段会通过 HTTPS 传送至 Google 的 AI 服务；请参阅 <a href="https://ai.google.dev/terms" rel="noopener noreferrer">Google AI 条款</a> 及谷歌隐私政策。</li>
+      <li>仅在您<strong>主动发起生成</strong>时，相关图像片段会通过 HTTPS 传送至您所启用服务商的 AI 接口。第三方数据处理须以其官方条款与隐私政策为准，例如：<a href="https://ai.google.dev/gemini-api/terms">Google AI / Gemini API 条款</a>、<a href="https://policies.google.com/privacy">Google 隐私政策</a>，以及可灵/Kling 侧公布的用户协议与隐私政策（请访问 <a href="https://klingai.com">klingai.com</a> 当前公示页面）。</li>
       <li>请确保您对使用的照片、肖像与商品素材拥有合法授权，并勿将输出用于违法、欺诈或侵犯他人权益的行为。</li>
     </ul>
 
     <div id="face-data" class="face-data-panel" style="margin-top: 1.35rem; padding-top: 1.25rem; border-top: 1px solid var(--border);">
-      <p class="face-data-note">以下为人脸与个人形象数据处理说明。关于 Google 对 API 数据的处理须以其 <a href="https://ai.google.dev/gemini-api/docs" rel="noopener noreferrer">官方文档与条款</a> 为准。</p>
+      <p class="face-data-note">以下为人脸与个人形象数据处理说明。Google 与 Kling 对 API 数据的处理须以其各自官方文档与条款为准。</p>
 
       <div class="lang-switch" role="group" aria-label="显示语言">
         <button type="button" id="lang-btn-zh" aria-pressed="true">中文</button>
@@ -162,7 +162,7 @@
           <li>由你主动导入或粘贴的<strong>完整图片</strong>仅在设备本地处理。</li>
           <li>使用系统提供的图像分析在设备上检测人脸后，应用会裁切<strong>面部及周边区域</strong>，并将该区域编码为 <strong>JPEG 图像</strong>。</li>
           <li>应用<strong>不会</strong>在设备上计算或上传独立的“人脸模板”“面纹”或用于识别身份的生物特征向量。</li>
-          <li>你为编辑图像而输入的<strong>文本提示词</strong>可能与面部外观或风格相关，会随请求一并发送至第三方 AI 服务。</li>
+          <li>你为编辑图像而输入的<strong>文本提示词</strong>可能与面部外观或风格相关，会随请求一并发送至你所选用的<strong>第三方 AI 服务</strong>（Gemini 或 Kling）。</li>
         </ul>
         <p><strong>我们如何使用这些数据</strong></p>
         <ul>
@@ -171,17 +171,17 @@
         </ul>
         <p><strong>是否与第三方共享、存储在何处</strong></p>
         <ul>
-          <li><strong>会。</strong>为实现 AI 生成，应用将你的 <strong>JPEG 人像裁切图</strong> 与 <strong>提示词</strong> 通过加密连接发送至 <strong>Google LLC</strong> 提供的 <strong>Google Gemini API</strong>（Generative Language API）。数据传输路径为：<strong>你的 Mac 设备 → Google 的服务器</strong>。</li>
-          <li>本应用<strong>不运营</strong>用于接收或存储上述图像内容的自有后端服务器；处理由 Google 在其基础设施上完成。Google 对该等数据的处理受其公开服务条款与隐私政策约束；请参见 Google 就 Gemini / Generative AI API 发布的说明。</li>
+          <li><strong>会。</strong>为实现 AI 生成，应用将你的 <strong>JPEG 人像裁切图</strong> 与 <strong>提示词</strong> 通过加密连接发送至你在应用中选择的服务方：<strong>Google LLC</strong> 提供的 <strong>Google Gemini API</strong>（Generative Language API），和/或 <strong>可灵/Kling 运营方</strong>提供的 <strong>Kling（可灵）开放平台 API</strong>（具体主体与产品名称以可灵官网公示为准）。数据传输路径为：<strong>你的 Mac 设备 → 对应服务商的服务器</strong>。</li>
+          <li>本应用<strong>不运营</strong>用于接收或存储上述图像内容的自有后端服务器；处理在第三方基础设施上完成。Google 与 Kling 对该等数据的处理分别受其公开服务条款与隐私政策约束。</li>
         </ul>
         <p><strong>保留期限</strong></p>
         <ul>
           <li><strong>你的设备上</strong>：原始图与生成结果仅在本地保留；若你使用系统文件对话框将结果导出，则文件保存在你所选位置。应用可能在本地存储你的 API Key、模型配置、提示词等设置，直至你卸载应用或清除数据。</li>
-          <li><strong>Google 侧</strong>：API 请求相关的处理与留存遵循 Google 对其企业 / API 产品的现行政策；我们不控制 Google 内部日志留存细则，请以 Google 官方文档为准。</li>
+          <li><strong>第三方侧</strong>：API 请求相关的处理与留存遵循 Google 与 Kling 对其企业 / API 产品的现行政策；我们不控制其内部日志留存细则，请以各服务商官方文档为准。</li>
         </ul>
         <p><strong>撤回同意</strong></p>
         <ul>
-          <li>你可以在应用<strong>设置</strong>中关闭「允许将数据发送至 Google Gemini」，或在首次提示中拒绝同意；关闭后应用不会向 Google 发起含人像裁切图与提示词的生成请求。</li>
+          <li>你可以在应用<strong>设置</strong>中关闭「允许将数据发送至第三方 AI」，或在首次提示中拒绝同意；关闭后应用不会向 Google 或 Kling 发起含人像裁切图与提示词的生成请求。</li>
         </ul>
       </div>
 
@@ -192,7 +192,7 @@
           <li><strong>Full images</strong> you import or paste are processed <strong>on your device</strong> first.</li>
           <li>After detecting a face locally, the app crops the <strong>face region (including surrounding area)</strong> and encodes it as a <strong>JPEG image</strong>.</li>
           <li>The app does <strong>not</strong> compute or upload a separate biometric template, faceprint, or similar identifier.</li>
-          <li>Your <strong>text prompt</strong> for editing may describe facial appearance or style and is sent to the third-party AI service together with the crop.</li>
+          <li>Your <strong>text prompt</strong> for editing may describe facial appearance or style and is sent to the <strong>third-party AI service you select</strong> (Google Gemini or Kling) together with the crop.</li>
         </ul>
         <p><strong>How we use this data</strong></p>
         <ul>
@@ -201,17 +201,17 @@
         </ul>
         <p><strong>Sharing, third parties, and storage</strong></p>
         <ul>
-          <li><strong>Yes.</strong> To provide AI generation, the app transmits your <strong>JPEG face-region crop</strong> and <strong>prompt</strong> over an encrypted connection to <strong>Google LLC</strong>’s <strong>Google Gemini API</strong> (Generative Language API). Path: <strong>your Mac → Google’s servers</strong>.</li>
-          <li>This app does <strong>not</strong> operate its own backend that receives or stores those images; processing occurs on Google’s infrastructure, governed by Google’s applicable terms and privacy notices for Gemini / Generative AI API users.</li>
+          <li><strong>Yes.</strong> To provide AI generation, the app transmits your <strong>JPEG face-region crop</strong> and <strong>prompt</strong> over an encrypted connection to the provider you enable in the app: <strong>Google LLC</strong>’s <strong>Google Gemini API</strong> (Generative Language API), and/or the <strong>Kling (可灵) open-platform APIs</strong> operated by the Kling party (see <a href="https://klingai.com">klingai.com</a> for the current legal entity and product names). Path: <strong>your Mac → that provider’s servers</strong>.</li>
+          <li>This app does <strong>not</strong> operate its own backend that receives or stores those images; processing occurs on the third party’s infrastructure. Google’s and Kling’s handling is governed by their applicable terms and privacy notices for their API products.</li>
         </ul>
         <p><strong>Retention</strong></p>
         <ul>
           <li><strong>On device:</strong> Source and output images remain local unless you export a file to a location you choose. Settings such as API key, model id, and prompts may persist until you delete the app or its data.</li>
-          <li><strong>At Google:</strong> Handling and retention of API traffic follow Google’s current policies for the relevant API products; refer to Google’s official documentation for details.</li>
+          <li><strong>At third parties:</strong> Handling and retention of API traffic follow each provider’s current policies (Google and Kling); refer to their official documentation.</li>
         </ul>
         <p><strong>Withdrawing consent</strong></p>
         <ul>
-          <li>You can turn off “Allow sending data to Google Gemini” in the app <strong>Settings</strong>, or decline the first-time prompt. When disabled, the app will not send face crops or prompts to Google for generation.</li>
+          <li>You can turn off consent for sending data to third-party AI in the app <strong>Settings</strong>, or decline the first-time prompt. When disabled, the app will not send face crops or prompts to Google or Kling for generation.</li>
         </ul>
       </div>
     </div>
@@ -221,7 +221,7 @@
     <h2>系统与网络</h2>
     <ul>
       <li>macOS 版本要求以 App Store 或下载页所列为准（与开发者构建时的最低系统版本一致）。</li>
-      <li>需要可访问 Google AI API 的网络环境。</li>
+      <li>需要可访问你所选 AI 服务商 API 的网络环境（使用 Gemini 时需能访问 Google AI；使用 Kling 时需能访问可灵开放平台）。</li>
     </ul>
   </section>
 
@@ -230,21 +230,6 @@
   </footer>
 
   <script>
-    (function () {
-      var path = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\/+$/, '');
-      var seg = path.split('/').filter(Boolean);
-      var user = 'YOUR_USERNAME';
-      var repo = 'YOUR_REPO';
-      if (seg.length >= 2 && window.location.hostname.endsWith('github.io')) {
-        user = seg[0];
-        repo = seg[1];
-      }
-      var el = document.getElementById('support-url');
-      if (el && user !== 'YOUR_USERNAME' && repo !== 'YOUR_REPO') {
-        el.textContent = 'https://github.com/' + user + '/' + repo;
-      }
-    })();
-
     (function () {
       var btnZh = document.getElementById('lang-btn-zh');
       var btnEn = document.getElementById('lang-btn-en');
