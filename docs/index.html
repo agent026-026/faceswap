@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="favicon.ico">
-  <title>FaceSwap · 电商模特图换脸</title>
-  <meta name="description" content="FaceSwap macOS 应用：本地 Vision 人脸检测，支持 Google Gemini 与 Kling（可灵）等生成式 AI。适用于电商模特图处理；支持、隐私与链接说明。">
+  <title>Faceswap · 电商模特图换脸</title>
+  <meta name="description" content="Faceswap macOS 应用：本地 Vision 人脸检测，支持 Google Gemini 与 Kling（可灵）等生成式 AI。适用于电商模特图处理；支持、隐私与链接说明。">
   <style>
     :root {
       color-scheme: light dark;
@@ -124,26 +124,26 @@
 </head>
 <body>
   <header>
-    <h1>FaceSwap</h1>
+    <h1>Faceswap</h1>
     <p class="subtitle">电商场景 · macOS 本地人脸检测与 AI 辅助图像编辑（需在应用内自备 Google Gemini 或 Kling（可灵）API 凭据）</p>
   </header>
 
   <section id="product">
     <h2>产品说明</h2>
-    <p>FaceSwap 是一款运行在您 Mac 上的效率类工具，用于在您本人提供素材的前提下，辅助处理含人像的图片（例如电商模特图）。应用在设备本地使用系统能力检测人脸区域；当您主动发起「生成」时，会将当前处理中的人脸区域图像通过加密连接（HTTPS）发送至您在应用中所选的<strong>第三方生成式 AI 服务</strong>（<strong>Google Gemini API</strong> 或 <strong>Kling（可灵）开放平台 API</strong>）以返回编辑结果，并融合回原图。</p>
+    <p>Faceswap 是一款运行在您 Mac 上的效率类工具，用于在您本人提供素材的前提下，辅助处理含人像的图片（例如电商模特图）。应用在设备本地使用系统能力检测人脸区域；当您主动发起「生成」时，会将当前处理中的人脸区域图像通过加密连接（HTTPS）发送至您在应用中所选的<strong>第三方生成式 AI 服务</strong>（<strong>Google Gemini API</strong> 或 <strong>Kling（可灵）开放平台 API</strong>）以返回编辑结果，并融合回原图。</p>
     <p><strong>重要：</strong>使用本应用需您自行准备有效的 API 权限、遵守相应服务商条款，以及符合条款的网络环境。生成质量与可用性取决于第三方服务政策与模型版本。</p>
   </section>
 
   <section id="support">
     <h2>支持与反馈</h2>
-    <p>技术支持、缺陷报告与功能建议请通过我们的 <a href="https://github.com/agent026-026/faceswap">FaceSwap GitHub 仓库</a>提交（请在 App Store 或分发渠道所列的「支持链接」中打开同一地址）。</p>
+    <p>技术支持、缺陷报告与功能建议请通过我们的 <a href="https://github.com/agent026-026/faceswap">Faceswap GitHub 仓库</a>提交（请在 App Store 或分发渠道所列的「支持链接」中打开同一地址）。</p>
   </section>
 
   <section id="privacy">
     <h2>隐私与数据</h2>
     <ul>
       <li>开发者<strong>不通过自有服务器</strong>收集本应用内的账户密码；API 密钥由您保存在本设备。</li>
-      <li>仅在您<strong>主动发起生成</strong>时，相关图像片段会通过 HTTPS 传送至您所启用服务商的 AI 接口。第三方数据处理须以其官方条款与隐私政策为准，例如：<a href="https://ai.google.dev/gemini-api/terms">Google AI / Gemini API 条款</a>、<a href="https://policies.google.com/privacy">Google 隐私政策</a>，以及可灵/Kling 侧公布的用户协议与隐私政策（请访问 <a href="https://klingai.com">klingai.com</a> 当前公示页面）。</li>
+      <li>仅在您<strong>主动发起生成</strong>时，相关图像片段会通过 HTTPS 传送至您所启用服务商的 AI 接口。第三方数据处理须以其官方条款与隐私政策为准，例如：<a href="https://ai.google.dev/gemini-api/terms">Google AI / Gemini API 条款</a>、<a href="https://policies.google.com/privacy">Google 隐私政策</a>，以及 Kling（可灵）<a href="https://klingai.com/document-api/protocols/privacyPolicy">开放平台隐私政策</a>（亦可从 <a href="https://klingai.com">klingai.com</a> 查阅当前公示版本）。</li>
       <li>请确保您对使用的照片、肖像与商品素材拥有合法授权，并勿将输出用于违法、欺诈或侵犯他人权益的行为。</li>
     </ul>
 
@@ -174,10 +174,17 @@
           <li><strong>会。</strong>为实现 AI 生成，应用将你的 <strong>JPEG 人像裁切图</strong> 与 <strong>提示词</strong> 通过加密连接发送至你在应用中选择的服务方：<strong>Google LLC</strong> 提供的 <strong>Google Gemini API</strong>（Generative Language API），和/或 <strong>可灵/Kling 运营方</strong>提供的 <strong>Kling（可灵）开放平台 API</strong>（具体主体与产品名称以可灵官网公示为准）。数据传输路径为：<strong>你的 Mac 设备 → 对应服务商的服务器</strong>。</li>
           <li>本应用<strong>不运营</strong>用于接收或存储上述图像内容的自有后端服务器；处理在第三方基础设施上完成。Google 与 Kling 对该等数据的处理分别受其公开服务条款与隐私政策约束。</li>
         </ul>
+        <p><strong>第三方是否会存储人脸相关数据及其做法（摘要）</strong></p>
+        <p class="face-data-note">以下为便于理解的摘要；具体权利义务以各服务商现行官方文本为准。人脸相关数据指本应用发送的面部区域 JPEG 裁切图及配套提示词等请求内容。</p>
+        <ul>
+          <li><strong>会。</strong>为实现生成式编辑，<strong>Google</strong> 与 <strong>Kling</strong> 均会在其<strong>服务器上接收并处理</strong>上述内容；处理过程通常包含短时的服务器侧存储或缓存，并可能依其安全、运维与合规要求留存一定期限的日志或副本。</li>
+          <li><strong>Google（Gemini API）</strong>：请求由 Google 基础设施处理。<a href="https://ai.google.dev/gemini-api/terms">Google AI / Gemini API 条款</a>与<a href="https://policies.google.com/privacy">Google 隐私政策</a>说明了其如何收集、使用、保留与安全处理数据（包括您通过 API 提交的内容），以及适用法律下的保留与安全措施。我们<strong>不运营</strong> Google 的服务器，亦<strong>无法控制</strong>其内部留存细则。</li>
+          <li><strong>Kling（可灵 AI，开放平台 API）</strong>：依据 Kling 公示的<a href="https://klingai.com/document-api/protocols/privacyPolicy">隐私政策</a>（节选理解，以原文为准）：个人信息原则上存储于<strong>中国境内</strong>；保存期限一般为<strong>实现处理目的所必需的时间</strong>及<strong>法律法规要求的期限</strong>；在您注销账号、主动删除或超出必要期限后，将对个人信息进行删除或匿名化，但依法需留存的除外；服务终止时将以公告等形式通知并在合理期限内删除或匿名化。Kling 亦描述了加密、安全制度与访问控制等安全措施。</li>
+        </ul>
         <p><strong>保留期限</strong></p>
         <ul>
-          <li><strong>你的设备上</strong>：原始图与生成结果仅在本地保留；若你使用系统文件对话框将结果导出，则文件保存在你所选位置。应用可能在本地存储你的 API Key、模型配置、提示词等设置，直至你卸载应用或清除数据。</li>
-          <li><strong>第三方侧</strong>：API 请求相关的处理与留存遵循 Google 与 Kling 对其企业 / API 产品的现行政策；我们不控制其内部日志留存细则，请以各服务商官方文档为准。</li>
+          <li><strong>你的设备上</strong>：原始图与生成结果在应用内处理与展示；若能在源图目录创建 <code class="placeholder">faceswap</code> 子文件夹，应用会将 PNG 结果写入该用户可浏览的位置；若系统权限不允许，应用将使用 macOS 标准<strong>「存储为」</strong>对话框，由你选择<strong>可访问的用户位置</strong>保存导出文件。<strong>我们不会</strong>将导出的结果图写入仅供应用内部使用的隐藏容器目录（例如 Application Support）作为对用户文件的默认保存位置。应用可能在本地存储你的 API Key、模型配置、提示词等设置，直至你卸载应用或清除数据。</li>
+          <li><strong>第三方侧</strong>：见上文「第三方是否会存储…」；完整细节请以 Google 与 Kling 官方文档为准。</li>
         </ul>
         <p><strong>撤回同意</strong></p>
         <ul>
@@ -204,10 +211,17 @@
           <li><strong>Yes.</strong> To provide AI generation, the app transmits your <strong>JPEG face-region crop</strong> and <strong>prompt</strong> over an encrypted connection to the provider you enable in the app: <strong>Google LLC</strong>’s <strong>Google Gemini API</strong> (Generative Language API), and/or the <strong>Kling (可灵) open-platform APIs</strong> operated by the Kling party (see <a href="https://klingai.com">klingai.com</a> for the current legal entity and product names). Path: <strong>your Mac → that provider’s servers</strong>.</li>
           <li>This app does <strong>not</strong> operate its own backend that receives or stores those images; processing occurs on the third party’s infrastructure. Google’s and Kling’s handling is governed by their applicable terms and privacy notices for their API products.</li>
         </ul>
+        <p><strong>Do third parties store face-related data, and their practices (summary)</strong></p>
+        <p class="face-data-note">Plain-language summary; binding terms are each provider’s official documents. “Face-related data” here means the JPEG face-region crop and related prompt text this app sends.</p>
+        <ul>
+          <li><strong>Yes.</strong> To run generative editing, <strong>Google</strong> and <strong>Kling</strong> each <strong>receive and process</strong> that content on <strong>their servers</strong>. Processing typically involves short-lived server-side storage or caching, and providers may retain logs or copies for security, operations, and legal compliance as described in their policies.</li>
+          <li><strong>Google (Gemini API):</strong> Requests are handled on Google infrastructure. The <a href="https://ai.google.dev/gemini-api/terms">Google AI / Gemini API Terms</a> and <a href="https://policies.google.com/privacy">Google Privacy Policy</a> describe how Google collects, uses, retains, and secures data—including content you submit through the API—and applicable retention and safeguards. We do <strong>not</strong> operate Google’s systems and <strong>cannot</strong> control their internal retention details.</li>
+          <li><strong>Kling (Kling AI / 可灵, open-platform API):</strong> Per Kling’s published <a href="https://klingai.com/document-api/protocols/privacyPolicy">privacy policy</a> (our non-binding summary; the original text controls): personal information is generally stored <strong>inside China</strong>; retention is generally limited to what is <strong>necessary for the stated purposes</strong> and periods <strong>required by law</strong>; after you delete your account, delete data voluntarily, or when retention is no longer necessary, they delete or anonymize personal information except where law requires continued retention; if the service ends, they notify users and delete or anonymize within a reasonable period. The policy also describes encryption, security programs, and access controls.</li>
+        </ul>
         <p><strong>Retention</strong></p>
         <ul>
-          <li><strong>On device:</strong> Source and output images remain local unless you export a file to a location you choose. Settings such as API key, model id, and prompts may persist until you delete the app or its data.</li>
-          <li><strong>At third parties:</strong> Handling and retention of API traffic follow each provider’s current policies (Google and Kling); refer to their official documentation.</li>
+          <li><strong>On device:</strong> Source and output are processed and shown in the app. When allowed, the app writes PNG results next to your source file in a user-visible <code class="placeholder">faceswap</code> folder. If the OS denies that, the app uses the standard macOS <strong>Save</strong> dialog so you pick an <strong>accessible user location</strong>. We do <strong>not</strong> place exported result images in hidden app-only container locations (such as Application Support) as the default place for user files. Settings such as API key, model id, and prompts may persist until you delete the app or its data.</li>
+          <li><strong>At third parties:</strong> See “Do third parties store…” above; refer to Google’s and Kling’s official documentation for full detail.</li>
         </ul>
         <p><strong>Withdrawing consent</strong></p>
         <ul>
@@ -226,7 +240,7 @@
   </section>
 
   <footer>
-    <p>© 2026 FaceSwap App. All rights reserved.</p>
+    <p>© 2026 Faceswap. All rights reserved.</p>
   </footer>
 
   <script>
